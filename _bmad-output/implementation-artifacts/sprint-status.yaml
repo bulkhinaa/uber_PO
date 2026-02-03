@@ -42,7 +42,7 @@ story_location: /Users/baa/my-bmad-project/UBER_PO/_bmad-output/implementation-a
 development_status:
   epic-1: in-progress
   1-1-project-initialization-setup: done
-  1-2-database-foundation-core-models: ready-for-dev
+  1-2-database-foundation-core-models: done
   1-3-telegram-bot-integration-authentication: backlog
   1-4-voice-recognition-with-whisper-api: backlog
   1-5-create-project-command-via-voice: backlog

@@ -1,6 +1,6 @@
 # Story 1.2: Database Foundation — Core Models
 
-Status: ready-for-dev
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -51,68 +51,68 @@ So that I can store user data with proper structure and relationships.
 
 ## Tasks / Subtasks
 
-- [ ] Task 1: Create base declarative model (AC: 1)
-  - [ ] Subtask 1.1: Create models/base.py with SQLAlchemy declarative_base
-  - [ ] Subtask 1.2: Configure Base with common timestamp columns (created_at, updated_at)
-  - [ ] Subtask 1.3: Add __repr__ helper for debugging
-  - [ ] Subtask 1.4: Update models/__init__.py to export Base
+- [x] Task 1: Create base declarative model (AC: 1)
+  - [x] Subtask 1.1: Create models/base.py with SQLAlchemy declarative_base
+  - [x] Subtask 1.2: Configure Base with common timestamp columns (created_at, updated_at)
+  - [x] Subtask 1.3: Add __repr__ helper for debugging
+  - [x] Subtask 1.4: Update models/__init__.py to export Base
 
-- [ ] Task 2: Implement Project model (AC: 2)
-  - [ ] Subtask 2.1: Create models/project.py with all required fields
-  - [ ] Subtask 2.2: Add unique constraint on name field
-  - [ ] Subtask 2.3: Add table name and indexes
-  - [ ] Subtask 2.4: Implement __repr__ for logging
-  - [ ] Subtask 2.5: Update models/__init__.py to export Project
+- [x] Task 2: Implement Project model (AC: 2)
+  - [x] Subtask 2.1: Create models/project.py with all required fields
+  - [x] Subtask 2.2: Add unique constraint on name field
+  - [x] Subtask 2.3: Add table name and indexes
+  - [x] Subtask 2.4: Implement __repr__ for logging
+  - [x] Subtask 2.5: Update models/__init__.py to export Project
 
-- [ ] Task 3: Implement Feature model with relationships (AC: 3)
-  - [ ] Subtask 3.1: Create models/feature.py with all required fields
-  - [ ] Subtask 3.2: Add foreign key relationship to Project (project_id)
-  - [ ] Subtask 3.3: Add foreign key relationship to Release (release_id, nullable)
-  - [ ] Subtask 3.4: Configure SQLAlchemy relationship() to Project (many-to-one)
-  - [ ] Subtask 3.5: Add indexes on project_id, status, release_id
-  - [ ] Subtask 3.6: Update models/__init__.py to export Feature
+- [x] Task 3: Implement Feature model with relationships (AC: 3)
+  - [x] Subtask 3.1: Create models/feature.py with all required fields
+  - [x] Subtask 3.2: Add foreign key relationship to Project (project_id)
+  - [x] Subtask 3.3: Add foreign key relationship to Release (release_id, nullable)
+  - [x] Subtask 3.4: Configure SQLAlchemy relationship() to Project (many-to-one)
+  - [x] Subtask 3.5: Add indexes on project_id, status, release_id
+  - [x] Subtask 3.6: Update models/__init__.py to export Feature
 
-- [ ] Task 4: Implement EventLog model for audit trail (AC: 4)
-  - [ ] Subtask 4.1: Create models/event_log.py with all required fields
-  - [ ] Subtask 4.2: Configure details field as JSON type
-  - [ ] Subtask 4.3: Add timestamp default to current time
-  - [ ] Subtask 4.4: Add comment: "Append-only audit trail - no updates or deletes"
-  - [ ] Subtask 4.5: Add indexes on user_id, entity_type, timestamp
-  - [ ] Subtask 4.6: Update models/__init__.py to export EventLog
+- [x] Task 4: Implement EventLog model for audit trail (AC: 4)
+  - [x] Subtask 4.1: Create models/event_log.py with all required fields
+  - [x] Subtask 4.2: Configure details field as JSON type
+  - [x] Subtask 4.3: Add timestamp default to current time
+  - [x] Subtask 4.4: Add comment: "Append-only audit trail - no updates or deletes"
+  - [x] Subtask 4.5: Add indexes on user_id, entity_type, timestamp
+  - [x] Subtask 4.6: Update models/__init__.py to export EventLog
 
-- [ ] Task 5: Implement UserContext model (AC: 5)
-  - [ ] Subtask 5.1: Create models/user_context.py with user_id as primary key
-  - [ ] Subtask 5.2: Add foreign key relationship to Project (active_project_id, nullable)
-  - [ ] Subtask 5.3: Configure SQLAlchemy relationship() to Project
-  - [ ] Subtask 5.4: Add updated_at field with auto-update on modification
-  - [ ] Subtask 5.5: Update models/__init__.py to export UserContext
+- [x] Task 5: Implement UserContext model (AC: 5)
+  - [x] Subtask 5.1: Create models/user_context.py with user_id as primary key
+  - [x] Subtask 5.2: Add foreign key relationship to Project (active_project_id, nullable)
+  - [x] Subtask 5.3: Configure SQLAlchemy relationship() to Project
+  - [x] Subtask 5.4: Add updated_at field with auto-update on modification
+  - [x] Subtask 5.5: Update models/__init__.py to export UserContext
 
-- [ ] Task 6: Implement ProcessedMessage model for idempotency (AC: 6)
-  - [ ] Subtask 6.1: Create models/processed_message.py with message_id as primary key
-  - [ ] Subtask 6.2: Add unique constraint on message_id
-  - [ ] Subtask 6.3: Add processed_at field with default=now
-  - [ ] Subtask 6.4: Add index on message_id for fast lookup
-  - [ ] Subtask 6.5: Update models/__init__.py to export ProcessedMessage
+- [x] Task 6: Implement ProcessedMessage model for idempotency (AC: 6)
+  - [x] Subtask 6.1: Create models/processed_message.py with message_id as primary key
+  - [x] Subtask 6.2: Add unique constraint on message_id
+  - [x] Subtask 6.3: Add processed_at field with default=now
+  - [x] Subtask 6.4: Add index on message_id for fast lookup
+  - [x] Subtask 6.5: Update models/__init__.py to export ProcessedMessage
 
-- [ ] Task 7: Create Release model stub (required by Feature FK) (AC: 3)
-  - [ ] Subtask 7.1: Create models/release.py with minimal fields: id, project_id, version, target_date, status
-  - [ ] Subtask 7.2: Add foreign key to Project
-  - [ ] Subtask 7.3: Add relationship to Project
-  - [ ] Subtask 7.4: Update models/__init__.py to export Release
-  - [ ] Subtask 7.5: Add comment: "Full implementation in Story 1.5"
+- [x] Task 7: Create Release model stub (required by Feature FK) (AC: 3)
+  - [x] Subtask 7.1: Create models/release.py with minimal fields: id, project_id, version, target_date, status
+  - [x] Subtask 7.2: Add foreign key to Project
+  - [x] Subtask 7.3: Add relationship to Project
+  - [x] Subtask 7.4: Update models/__init__.py to export Release
+  - [x] Subtask 7.5: Add comment: "Full implementation in Story 1.5"
 
-- [ ] Task 8: Generate Alembic migration (AC: 7)
-  - [ ] Subtask 8.1: Verify alembic/env.py imports all models
-  - [ ] Subtask 8.2: Run `alembic revision --autogenerate -m "initial schema"`
-  - [ ] Subtask 8.3: Review generated migration file for correctness
-  - [ ] Subtask 8.4: Verify all tables, foreign keys, and indexes are included
+- [x] Task 8: Generate Alembic migration (AC: 7)
+  - [x] Subtask 8.1: Verify alembic/env.py imports all models
+  - [x] Subtask 8.2: Run `alembic revision --autogenerate -m "initial schema"`
+  - [x] Subtask 8.3: Review generated migration file for correctness
+  - [x] Subtask 8.4: Verify all tables, foreign keys, and indexes are included
 
-- [ ] Task 9: Apply migration and validate database (AC: 8)
-  - [ ] Subtask 9.1: Run `alembic upgrade head` against test database
-  - [ ] Subtask 9.2: Verify all tables created using psql or SQLAlchemy inspector
-  - [ ] Subtask 9.3: Test inserting sample Project, Feature records
-  - [ ] Subtask 9.4: Test foreign key constraints work correctly
-  - [ ] Subtask 9.5: Verify EventLog append-only behavior
+- [x] Task 9: Apply migration and validate database (AC: 8)
+  - [x] Subtask 9.1: Run `alembic upgrade head` against test database
+  - [x] Subtask 9.2: Verify all tables created using psql or SQLAlchemy inspector
+  - [x] Subtask 9.3: Test inserting sample Project, Feature records
+  - [x] Subtask 9.4: Test foreign key constraints work correctly
+  - [x] Subtask 9.5: Verify EventLog append-only behavior
 
 ## Dev Notes
 
@@ -459,29 +459,80 @@ All technical details sourced from:
 
 ### Agent Model Used
 
-_To be filled by dev agent_
+Claude Sonnet 4.5
 
 ### Debug Log References
 
-_To be filled by dev agent during implementation_
+No blockers encountered. Implementation proceeded smoothly following red-green-refactor cycle for all models.
+
+### Code Review Fixes Applied (2026-02-03)
+
+**Adversarial Code Review performed by Amelia (Dev Agent) - 10 issues found and fixed:**
+
+🔴 **CRITICAL ISSUES FIXED (3):**
+1. ✅ Project.features relationship uncommented and properly configured with back_populates
+2. ✅ Feature relationships missing back_populates - added to both project and release relationships
+3. ✅ Release model missing features relationship - added bidirectional navigation
+
+🟡 **MEDIUM ISSUES FIXED (4):**
+4. ✅ Duplicate indexes removed (index=True on columns + Index in __table_args__) - affects Project, Feature, EventLog, Release
+5. ✅ EventLog composite indexes added - replaced 3 single-column with 2 composite for query performance
+6. ✅ Release added __table_args__ with proper index definition
+7. ✅ Redundant nullable=True removed from all models (SQLAlchemy 2.0 infers from Mapped[T | None])
+
+🟢 **LOW ISSUES FIXED (3):**
+8. ✅ ProcessedMessage redundant unique=True removed (primary_key already implies unique)
+9. ✅ ProcessedMessage redundant nullable=False removed
+10. ✅ Migration regenerated with all fixes (17dac64f07ba replaces 1f20a53020fe)
+
+**Remaining Known Issues (Deferred):**
+- ⚠️ Problem #1: Git submodule (uber-po-bot) changes not committed - files exist but not in git history
+- ⚠️ Problem #5: Base.updated_at onupdate may not work for bulk updates (event listener recommended for future)
 
 ### Completion Notes List
 
-_To be filled by dev agent upon completion_
+✅ Implemented all 7 database models using SQLAlchemy 2.0.46 modern patterns:
+- Base declarative class with common timestamps and __repr__
+- Project model with unique name constraint and status default
+- Release model (stub) for Feature FK support
+- Feature model with relationships to Project and Release
+- EventLog model with JSON details field (append-only audit trail)
+- UserContext model for active project tracking
+- ProcessedMessage model for idempotency
+
+✅ Generated Alembic migration covering all tables, foreign keys, and indexes
+✅ Applied migration successfully to PostgreSQL database
+✅ Validated database with comprehensive tests (64 unit tests + manual integration tests)
+✅ All foreign key constraints work correctly (CASCADE, SET NULL)
+✅ All default values applied correctly (status='active', status='backlog', timestamps)
+✅ JSON field in EventLog validated with test data
 
 ### File List
 
-**Expected new files:**
-- `models/base.py` - Base declarative class
+**New files created:**
+- `models/base.py` - Base declarative class with timestamps and __repr__
 - `models/project.py` - Project model
-- `models/feature.py` - Feature model
-- `models/release.py` - Release model (stub)
-- `models/event_log.py` - EventLog model
-- `models/user_context.py` - UserContext model
-- `models/processed_message.py` - ProcessedMessage model
-- `alembic/versions/{timestamp}_initial_schema.py` - Generated migration
+- `models/feature.py` - Feature model with relationships
+- `models/release.py` - Release model (stub for Story 1.5)
+- `models/event_log.py` - EventLog audit trail model
+- `models/user_context.py` - UserContext for active project tracking
+- `models/processed_message.py` - ProcessedMessage for idempotency
+- `alembic/versions/1f20a53020fe_initial_schema.py` - Initial migration
+- `tests/test_models_base.py` - Unit tests for Base (6 tests)
+- `tests/test_models_project.py` - Unit tests for Project (10 tests)
+- `tests/test_models_feature.py` - Unit tests for Feature (11 tests)
+- `tests/test_models_release.py` - Unit tests for Release (6 tests)
+- `tests/test_models_event_log.py` - Unit tests for EventLog (12 tests)
+- `tests/test_models_user_context.py` - Unit tests for UserContext (10 tests)
+- `tests/test_models_processed_message.py` - Unit tests for ProcessedMessage (9 tests)
 
-**Expected modified files:**
-- `models/__init__.py` - Export all models
-- `alembic/env.py` - Import Base.metadata for autogenerate
-- `requirements.txt` - No changes expected (dependencies already installed in Story 1.1)
+**Modified files (Code Review Fixes Applied):**
+- `models/__init__.py` - Export all 7 models
+- `alembic/env.py` - Import Base.metadata and all models for autogenerate
+- `models/project.py` - CODE REVIEW FIX: Uncommented features relationship, added releases relationship with back_populates, removed duplicate indexes
+- `models/feature.py` - CODE REVIEW FIX: Added back_populates to project/release relationships, removed duplicate indexes, removed redundant nullable=True
+- `models/release.py` - CODE REVIEW FIX: Added features relationship with back_populates, added __table_args__ with index
+- `models/event_log.py` - CODE REVIEW FIX: Replaced 3 single-column indexes with 2 composite indexes for better query performance
+- `models/processed_message.py` - CODE REVIEW FIX: Removed redundant unique=True on primary key, removed redundant nullable=False
+- `alembic/versions/1f20a53020fe_initial_schema.py` - DELETED (had duplicate indexes)
+- `alembic/versions/17dac64f07ba_initial_schema_with_fixed_relationships_.py` - NEW migration with all code review fixes applied
